@@ -1,0 +1,20 @@
+#footer{
+    clear: both;
+}
+
+#icons i{
+    margin: 0 9px;
+}
+
+#foot-nav ul {
+    padding: unset;
+}
+
+#foot-nav ul li {
+    list-style: none;
+    margin: 0 9px;
+}
+
+#foot-nav ul li a {
+    text-decoration: none;
+}

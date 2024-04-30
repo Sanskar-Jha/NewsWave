@@ -1,0 +1,25 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#img-404 {
+    width: 15rem;
+}
+
+#btn {
+    text-decoration: none;
+    border: 2px solid black;
+    padding: 0px 6px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+/* Responsive */
+@media screen and (max-width:425px) {
+    #img-404 {
+        width: 9rem;
+    }
+}

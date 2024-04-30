@@ -1,0 +1,24 @@
+.navbar {
+    /* position: fixed;
+    top: 31px;
+    z-index: 1;
+    width: 100%; */
+    z-index: 1;
+}
+
+/* Logo */
+#logo {
+    width: 35px;
+    border-radius: 50%;
+}
+
+/* Media queries */
+@media screen and (max-width: 768px) {
+    .navbar-brand {
+        font-size: 17px;
+    }
+
+    #logo {
+        width: 29px;
+    }
+}

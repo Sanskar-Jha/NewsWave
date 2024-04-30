@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {{>headLinks}}
+    <link rel="stylesheet" href="../../styles/navbar.css">
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/footer.css">
+    <title>NewsWave</title>
+</head>
+
+<body>
+    <header class="text-center p-1">
+        <p class="m-auto">"Dive into the Pulse of Today: NewsWave, Your Gateway to the Latest!"</p>
+    </header>
+
+    {{!-- <!-- Navigation --> --}}
+    {{>navbar}}
+
+    {{!-- <!-- Sidebar --> --}}
+    <section>
+        <div>
+            <button id="filter-btn" class="rounded-end" type="button">Filter</button>
+        </div>
+    </section>
+    <aside id="sidebar-filter">
+        <h5>filter your search</h5>
+
+        <!-- sidebar form -->
+        <form action="" id="filter-form">
+            <div>
+                <label for="">Doamin</label>
+                <input type="text" id="domain0" class="domains" name="domain0">
+                <i id="add-domain-btn" class="fa-solid fa-plus"></i>
+                <input type="hidden" id="apiKey" value="{{apiKey}}">
+                <div id="add-input"></div>
+            </div>
+
+            <!-- Filter by date -->
+            <div>
+                <h6>Date</h6>
+                <div>
+                    <label for="">From</label>
+                    <input type="date" id="date-from" name="from">
+                </div>
+                <div>
+                    <label for="">To</label>
+                    <input type="date" id="date-to" name="to">
+                </div>
+            </div>
+
+            <!-- Filter by language codes -->
+            <div>
+                <label for="">Language codes</label>
+                <select name="languageSelect" id="language-select"></select>
+            </div>
+
+            <!-- Filter by sorting -->
+            <div>
+                <label for="">Sort by</label>
+                <select name="sorting" id="sorting"></select>
+            </div>
+
+            <!-- Submit button -->
+            <div>
+                <input type="submit" id="filter-submit-btn" name="filterSubmitBtn" class="btn btn-secondary">
+                <button type="button" id="clear-btn" class="btn btn-secondary">Clear</button>
+            </div>
+        </form>
+    </aside>
+
+    {{!-- <!-- News container --> --}}
+    <section id="news-container">
+        <div class="accordion" id="accordionExample"></div>
+    </section>
+
+    {{!-- <!-- Footer section --> --}}
+    {{>footer}}
+
+    {{>scriptLinks}}
+    <script type="module" src="../../scripts/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,159 @@
+/* Reset default CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header */
+header {
+    /* position: fixed;
+    top: 0;
+    z-index: 1;
+    width: 100%; */
+}
+
+/* Sidebar */
+#filter-btn {
+    display: none;
+}
+
+#sidebar-filter {
+    float: left;
+    width: 16rem;
+    background: #dddddd;
+    padding: 10px;
+    border-right: 2px solid black;
+}
+
+#sidebar-filter form,
+#sidebar-filter form label {
+    width: 100%;
+}
+
+#sidebar-filter form div {
+    margin-top: 13px;
+}
+
+#sidebar-filter form input {
+    padding: 5px 8px;
+    border: 2px solid black;
+    border-radius: 8px;
+    outline: none;
+}
+
+.domains {
+    margin: 6px 0;
+}
+
+#add-domain-btn,
+#remove-domain-btn {
+    border: 2px solid black;
+    border-radius: 50%;
+    padding: 3px;
+    background: green;
+    color: white;
+    margin-left: 2px;
+    cursor: pointer;
+}
+
+/* New conatiner */
+#news-container {
+    overflow-y: scroll;
+}
+
+#news-container::-webkit-scrollbar {
+    /* display: none; */
+}
+
+#accordionExample {
+    height: 100vh;
+}
+
+#reload-btn,
+#filter-btn {
+    padding: 8px;
+    background-color: #0d6efd;
+    color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+#filter-btn {
+    border-radius: 0%;
+    background-color: #dddddd;
+    color: black;
+    z-index: 1;
+    position: relative;
+}
+
+/* Media queries */
+@media screen and (max-width: 768px) {
+    header p {
+        font-size: 13px;
+    }
+
+    #sidebar-filter {
+        font-size: 14px;
+        width: 14.2rem;
+    }
+
+    #sidebar-filter h5 {
+        font-size: 1rem;
+    }
+
+    #filter-submit-btn,
+    #clear-btn {
+        font-size: 13px;
+    }
+
+    #reload-btn {
+        font-size: 12px;
+    }
+
+    #icons i {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    #sidebar-filter {
+        position: relative;
+        left: -15rem;
+        transition: all 0.5s ease-in-out;
+        z-index: 3;
+    }
+
+    #filter-btn {
+        display: block;
+    }
+
+    #news-container {
+        width: 100%;
+        /* background: red; */
+        position: absolute;
+        top: 8rem;
+        height: 28rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .accordion-button {
+        font-size: 15px;
+    }
+
+    .accordion-body {
+        font-size: 14px;
+    }
+
+    #news-container {
+        top: 9rem;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    #filter-btn {
+        font-size: 13px;
+    }
+}

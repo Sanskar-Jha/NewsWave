@@ -1,0 +1,18 @@
+{
+  "name": "newswave",
+  "version": "1.0.0",
+  "description": "Welcome to NewsWave, your source for breaking news, insightful analyses, and captivating stories from around the globe. Dive into a sea of information with our concise yet comprehensive coverage, keeping you informed and engaged with the world. Stay ahead of the tide with NewsWave.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app",
+    "dev": "nodemon app"
+  },
+  "author": "Sanskar Jha",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "hbs": "^4.2.0"
+  }
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>headLinks}}
+    <link rel="stylesheet" href="../../styles/navbar.css">
+    <link rel="stylesheet" href="../../styles/docs.css">
+    <link rel="stylesheet" href="../../styles/footer.css">
+    <title>NewsWave Docs</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    {{>navbar2}}
+
+    <main>
+        <div class="container p-3">
+            <h2>sort by guide:</h2>
+            <p><span>relevancy</span> = articles more closely related to search come first.</p>
+            <p><span>popularity</span> = articles from popular sources and publishers come first.</p>
+            <p><span>publishedAt</span> = newest articles come first.</p>
+        </div>
+    </main>
+
+    {{>footer}}
+
+    {{>scriptLinks}}
+</body>
+
+</html>
