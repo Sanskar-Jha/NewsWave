@@ -10,35 +10,41 @@
 </head>
 
 <body>
-    <header class="text-center p-1">
-        <p class="m-auto">"Dive into the Pulse of Today: NewsWave, Your Gateway to the Latest!"</p>
-    </header>
-
-    {{!-- <!-- Navigation --> --}}
+    {{!-- Navigation --}}
     {{>navbar}}
 
-    {{!-- <!-- Sidebar --> --}}
-    <section>
-        <div>
-            <button id="filter-btn" class="rounded-end" type="button">Filter</button>
+    {{!-- loader --}}
+    <div id="loader-container">
+        <div id="loader">
+            <div id="inner"></div>
         </div>
-    </section>
-    <aside id="sidebar-filter">
-        <h5>filter your search</h5>
+    </div>
 
-        <!-- sidebar form -->
-        <form action="" id="filter-form">
+    {{!-- Sidebar --}}
+    <section>
+        <button id="filter-btn" type="button">Filter</button>
+    </section>
+
+    {{!-- Filter section --}}
+    <aside id="filter">
+        <div id="h-filter">
+            <h5>filter your search</h5>
+            <i class="fa-solid fa-circle-xmark"></i>
+        </div>
+
+        {{!-- Filter form --}}
+        <form action="/" method="POST" id="filter-form">
             <div>
                 <label for="">Doamin</label>
                 <input type="text" id="domain0" class="domains" name="domain0">
                 <i id="add-domain-btn" class="fa-solid fa-plus"></i>
-                <input type="hidden" id="apiKey" value="{{apiKey}}">
                 <div id="add-input"></div>
             </div>
 
-            <!-- Filter by date -->
+            {{!-- Filter by date --}}
+            <hr>
             <div>
-                <h6>Date</h6>
+                <label for="">Date:</label>
                 <div>
                     <label for="">From</label>
                     <input type="date" id="date-from" name="from">
@@ -49,36 +55,62 @@
                 </div>
             </div>
 
-            <!-- Filter by language codes -->
+            {{!-- Filter by language codes --}}
+            <hr>
             <div>
                 <label for="">Language codes</label>
                 <select name="languageSelect" id="language-select"></select>
             </div>
 
-            <!-- Filter by sorting -->
+            {{!-- Filter by sorting --}}
+            <hr>
             <div>
                 <label for="">Sort by</label>
                 <select name="sorting" id="sorting"></select>
             </div>
 
-            <!-- Submit button -->
-            <div>
-                <input type="submit" id="filter-submit-btn" name="filterSubmitBtn" class="btn btn-secondary">
-                <button type="button" id="clear-btn" class="btn btn-secondary">Clear</button>
+            {{!-- Submit button --}}
+            <hr>
+            <div id="filter-btn-container">
+                <input type="submit" id="filter-submit-btn" name="filterSubmitBtn">
+                <button type="button" id="filter-clear-btn">Clear</button>
             </div>
         </form>
     </aside>
 
-    {{!-- <!-- News container --> --}}
-    <section id="news-container">
-        <div class="accordion" id="accordionExample"></div>
-    </section>
+    {{!-- News container --}}
+    <main id="news-container">
+        {{#each articles}}
+        {{#isNotRemoved title}}
+        {{#isImageNotNull urlToImage}}
+        <div class="news-card">
+            <div class="news-header">
+                <img src="{{urlToImage}}" alt="News">
+            </div>
+            <div class="news-content">
+                <h3>{{sliceTitle title 0 36}}...</h3>
+                <p>{{sliceContent content 0 108}}..<a href="{{url}}" target="_blank">Read more</a></p>
+            </div>
+        </div>
+        {{/isImageNotNull}}
+        {{/isNotRemoved}}
+        {{/each}}
+    </main>
 
-    {{!-- <!-- Footer section --> --}}
+    {{!-- Fetch more news button --}}
+    {{!-- Pending --}}
+    {{!-- <section>
+        <form action="/">
+            <input type="button" name="{{pageNum}}" value="" id="more-news">
+        </form>
+        <input type="number" value='' name='' id="more-news-hide" hidden>
+    </section> --}}
+
+    {{!-- Footer section --}}
     {{>footer}}
 
     {{>scriptLinks}}
-    <script type="module" src="../../scripts/script.js"></script>
+    <script src="../../scripts/script.js"></script>
 </body>
 
 </html>

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&family=Poppins:ital,wght@0,400;0,500;1,600&family=Sedan+SC&display=swap');
+
 /* Reset default CSS */
 * {
     margin: 0;
@@ -5,45 +7,82 @@
     box-sizing: border-box;
 }
 
-/* Header */
-header {
-    /* position: fixed;
-    top: 0;
-    z-index: 1;
-    width: 100%; */
-}
-
-/* Sidebar */
+/* Filter button*/
 #filter-btn {
-    display: none;
+    padding: 8px;
+    margin: 9px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
 }
 
-#sidebar-filter {
-    float: left;
-    width: 16rem;
-    background: #dddddd;
+#filter-btn:hover {
+    background-color: rgba(29, 255, 59, 0.539);
+}
+
+/* Filter section */
+#filter {
+    position: fixed;
+    top: 0;
+    left: -18rem;
+    width: 18rem;
+    height: 100%;
+    background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
     padding: 10px;
     border-right: 2px solid black;
+    font-family: "Sedan SC", serif;
+    z-index: 3;
+    transition: all 0.5s ease-in-out;
 }
 
-#sidebar-filter form,
-#sidebar-filter form label {
+#h-filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#h-filter h5 {
+    font-size: 1.2rem;
+    color: white;
+    letter-spacing: 2px;
+}
+
+#h-filter i {
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+#filter-form {
+    font-size: 1.2rem;
+    color: white;
+}
+
+#filter-form label {
     width: 100%;
 }
 
-#sidebar-filter form div {
-    margin-top: 13px;
+#filter-form div {
+    margin: 1rem 0rem;
 }
 
-#sidebar-filter form input {
-    padding: 5px 8px;
-    border: 2px solid black;
-    border-radius: 8px;
-    outline: none;
+#filter-form input[type="text"] {
+    cursor: auto;
 }
 
 .domains {
     margin: 6px 0;
+}
+
+#filter-btn-container {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    margin: 0;
+    display: flex;
+    gap: 19px;
 }
 
 #add-domain-btn,
@@ -57,103 +96,177 @@ header {
     cursor: pointer;
 }
 
+#filter-form input,
+#filter-form select,
+#filter-clear-btn {
+    font-size: 1rem;
+    padding: 5px 8px;
+    border: 2px solid black;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+}
+
+#filter-submit-btn,
+#filter-clear-btn {
+    background-color: white;
+    box-shadow: 0px 0px 24px 10px white;
+}
+
 /* New conatiner */
 #news-container {
-    overflow-y: scroll;
+    padding: 2rem;
+    display: grid;
+    gap: 2rem;
+    /* grid-template-rows: 7rem 7rem; */
+    /* grid-template-columns: 13rem 10rem; */
+    /* grid-template-rows: repeat(3, 1fr); */
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    /* grid-template-columns: repeat(4, 1fr); */
+    grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+    grid-auto-flow: row;
+    transition: all 0.5s ease-in-out;
 }
 
-#news-container::-webkit-scrollbar {
-    /* display: none; */
+.news-card {
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px 0px rgba(63, 94, 251, 1);
+    cursor: pointer;
 }
 
-#accordionExample {
+.news-card:nth-child(9n+1) {
+    /* grid-column-start: 1;
+    grid-column-end: 3; */
+    grid-row: span 1;
+    grid-column: span 2;
+}
+
+.news-header {
+    width: 100%;
+}
+
+.news-header img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    height: 14rem;
+}
+
+.news-content {
+    padding: 1rem;
+    letter-spacing: 2px;
+    line-height: 21px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.news-content h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.news-content p {
+    font-size: 14px;
+}
+
+/* Loader */
+#loader-container {
+    width: 100vw;
     height: 100vh;
+    background-color: #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
-#reload-btn,
-#filter-btn {
-    padding: 8px;
-    background-color: #0d6efd;
-    color: white;
-    border: 2px solid black;
-    border-radius: 10px;
-    font-weight: 600;
+#loader {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-#filter-btn {
-    border-radius: 0%;
-    background-color: #dddddd;
-    color: black;
-    z-index: 1;
-    position: relative;
+#inner {
+    border-radius: 50%;
+    border: 5px solid #3498db;
+    border-top-color: transparent;
+    width: 100%;
+    height: 100%;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* Media queries */
-@media screen and (max-width: 768px) {
-    header p {
-        font-size: 13px;
+@media screen and (max-width: 700px) {
+    #icons a i {
+        font-size: 1.5rem;
     }
 
-    #sidebar-filter {
-        font-size: 14px;
-        width: 14.2rem;
-    }
-
-    #sidebar-filter h5 {
+    #navigation li a {
         font-size: 1rem;
     }
 
-    #filter-submit-btn,
-    #clear-btn {
-        font-size: 13px;
-    }
-
-    #reload-btn {
-        font-size: 12px;
-    }
-
-    #icons i {
-        font-size: 1.5rem;
-    }
-}
-
-@media screen and (max-width: 660px) {
-    #sidebar-filter {
-        position: relative;
-        left: -15rem;
-        transition: all 0.5s ease-in-out;
-        z-index: 3;
-    }
-
-    #filter-btn {
-        display: block;
-    }
-
-    #news-container {
-        width: 100%;
-        /* background: red; */
-        position: absolute;
-        top: 8rem;
-        height: 28rem;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .accordion-button {
-        font-size: 15px;
-    }
-
-    .accordion-body {
+    #search {
         font-size: 14px;
     }
+}
 
+@media screen and (max-width: 425px) {
     #news-container {
-        top: 9rem;
+        padding: 20px;
     }
+}
+
+@media screen and (max-width: 390px) {
+    .news-card:nth-child(9n+1) {
+        grid-row: span 1;
+        grid-column: span 1;
+    }
+
+    header {
+        flex-direction: column-reverse;
+    }
+
 }
 
 @media screen and (max-width: 320px) {
     #filter-btn {
         font-size: 13px;
+    }
+
+    .news-card:nth-child(9n+1) {
+        grid-row: span 1;
+        grid-column: span 1;
+    }
+
+    .news-content h3 {
+        font-size: 1rem;
+    }
+
+    .news-content p {
+        font-size: 12px;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    #search-btn {
+        margin: 1rem;
     }
 }

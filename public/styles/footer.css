@@ -1,9 +1,6 @@
-#footer{
-    clear: both;
-}
-
-#icons i{
-    margin: 0 9px;
+/* Footer section */
+#footer {
+    background: linear-gradient(334deg, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%)
 }
 
 #foot-nav ul {
@@ -17,4 +14,14 @@
 
 #foot-nav ul li a {
     text-decoration: none;
+}
+
+#icons a i {
+    margin: 0 9px;
+    transition: all 0.5s ease-in-out;
+}
+
+#icons a i:hover {
+    transform: translateY(-4px);
+    color: blue !important;
 }
